@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IMAT Sensei Blog — The Complete Italian Medical School Guide</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Syne:wght@700;800&display=swap');
+
+:root {
+  --navy: #0d1b3e;
+  --navy2: #162550;
+  --gold: #f5a623;
+  --gold2: #ffd166;
+  --white: #ffffff;
+  --bg: #f0f4fa;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: #e2e8f0;
+  --card: #ffffff;
+  --green: #059669;
+  --red: #dc2626;
+  --amber: #d97706;
+  --blue: #2563eb;
+  --purple: #7c3aed;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+
+/* ── NAV ── */
+nav{background:var(--navy);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:62px;position:sticky;top:0;z-index:200;box-shadow:0 2px 20px rgba(0,0,0,.4)}
+.nav-logo{color:var(--gold);font-family:'Syne',sans-serif;font-weight:800;font-size:1.15rem;text-decoration:none;letter-spacing:-.3px}
+.nav-links{display:flex;gap:1.5rem;align-items:center}
+.nav-links a{color:rgba(255,255,255,.75);text-decoration:none;font-size:.85rem;font-weight:600;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--gold)}
+.nav-cta{background:var(--gold);color:var(--navy)!important;padding:.42rem 1.1rem;border-radius:6px;font-weight:800!important}
+.nav-cta:hover{background:var(--gold2)!important}
+
+/* ── HERO ── */
+.hero{background:var(--navy);padding:5rem 2rem 0;text-align:center;position:relative;overflow:hidden}
+.hero-canvas{position:absolute;inset:0;pointer-events:none}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:.5rem;background:rgba(245,166,35,.12);border:1px solid rgba(245,166,35,.3);color:var(--gold);padding:.3rem .9rem;border-radius:100px;font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:1.25rem}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:800;color:#fff;line-height:1.15;margin-bottom:.8rem}
+.hero h1 em{color:var(--gold);font-style:normal}
+.hero-sub{color:rgba(255,255,255,.6);font-size:1.05rem;max-width:580px;margin:0 auto 2.5rem}
+
+/* search bar */
+.search-wrap{max-width:680px;margin:0 auto 0;position:relative;z-index:1}
+.search-box{display:flex;gap:.75rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:.6rem .6rem .6rem 1.1rem;backdrop-filter:blur(12px)}
+.search-box input{flex:1;background:transparent;border:none;color:#fff;font-size:.95rem;outline:none;font-family:inherit}
+.search-box input::placeholder{color:rgba(255,255,255,.35)}
+.search-btn{background:var(--gold);color:var(--navy);border:none;border-radius:10px;padding:.6rem 1.4rem;font-weight:800;font-size:.875rem;cursor:pointer;transition:transform .15s,background .2s;white-space:nowrap}
+.search-btn:hover{background:var(--gold2);transform:scale(1.03)}
+
+/* pills */
+.pills-row{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;padding:1.5rem 2rem 0}
+.pill{padding:.38rem .95rem;border-radius:100px;border:1px solid rgba(255,255,255,.18);background:transparent;color:rgba(255,255,255,.65);font-size:.78rem;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit}
+.pill:hover,.pill.active{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+
+/* wave divider */
+.wave{display:block;width:100%;margin-top:2rem;line-height:0}
+
+/* ── STATS BAR ── */
+.stats-bar{background:#fff;border-bottom:1px solid var(--border);padding:.9rem 2rem}
+.stats-inner{max-width:1100px;margin:0 auto;display:flex;gap:2.5rem;justify-content:center;flex-wrap:wrap}
+.stat-item{display:flex;align-items:center;gap:.5rem;font-size:.85rem;color:var(--muted)}
+.stat-item strong{color:var(--navy);font-size:1.05rem}
+
+/* ── LAYOUT ── */
+.blog-layout{max-width:1120px;margin:2.5rem auto;padding:0 1.25rem;display:grid;grid-template-columns:1fr 308px;gap:2rem;align-items:start}
+
+/* ── SECTION LABELS ── */
+.sec-label{font-size:.7rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:.6rem}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* ── FEATURED ── */
+.feat-card{background:var(--navy);border-radius:20px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;cursor:pointer;text-decoration:none;transition:transform .25s,box-shadow .25s;margin-bottom:2rem;position:relative}
+.feat-card:hover{transform:translateY(-4px);box-shadow:0 24px 60px rgba(13,27,62,.3)}
+.feat-visual{background:linear-gradient(135deg,#0d1b3e 0%,#1e3a7b 100%);padding:2.5rem;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.feat-visual::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(245,166,35,.1)}
+.feat-visual::after{content:'';position:absolute;bottom:-60px;left:-30px;width:180px;height:180px;border-radius:50%;background:rgba(245,166,35,.07)}
+.feat-3d{position:relative;z-index:1;text-align:center}
+.feat-3d .big{font-family:'Syne',sans-serif;font-size:5.5rem;font-weight:800;color:var(--gold);line-height:1;text-shadow:0 8px 30px rgba(245,166,35,.4)}
+.feat-3d .lbl{color:rgba(255,255,255,.55);font-size:.82rem;margin-top:.2rem}
+.feat-content{padding:2.5rem;display:flex;flex-direction:column;justify-content:center}
+.post-badge{display:inline-block;padding:.2rem .65rem;border-radius:4px;font-size:.68rem;font-weight:800;letter-spacing:.5px;text-transform:uppercase;margin-bottom:.75rem}
+.badge-exam{background:#fee2e2;color:#991b1b}
+.badge-scholarship{background:#d1fae5;color:#065f46}
+.badge-strategy{background:#dbeafe;color:#1e40af}
+.badge-university{background:#ede9fe;color:#5b21b6}
+.badge-visa{background:#ffedd5;color:#9a3412}
+.feat-content h2{color:#fff;font-family:'Syne',sans-serif;font-size:1.45rem;font-weight:800;line-height:1.25;margin-bottom:.7rem}
+.feat-content p{color:rgba(255,255,255,.6);font-size:.9rem;margin-bottom:1.3rem;line-height:1.65}
+.read-more{display:inline-flex;align-items:center;gap:.4rem;color:var(--gold);font-weight:700;font-size:.875rem;text-decoration:none}
+.read-more svg{transition:transform .2s}
+.feat-card:hover .read-more svg{transform:translateX(5px)}
+
+/* ── GRID ── */
+.posts-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem}
+.post-card{background:var(--card);border-radius:14px;border:1px solid var(--border);overflow:hidden;cursor:pointer;text-decoration:none;color:inherit;transition:transform .22s,box-shadow .22s;display:flex;flex-direction:column}
+.post-card:hover{transform:translateY(-4px);box-shadow:0 12px 35px rgba(13,27,62,.12)}
+.post-card.hidden{display:none!important}
+.card-bar{height:4px}
+.bar-navy{background:linear-gradient(90deg,var(--navy),#3b82f6)}
+.bar-green{background:linear-gradient(90deg,#065f46,#10b981)}
+.bar-purple{background:linear-gradient(90deg,#4c1d95,#8b5cf6)}
+.bar-orange{background:linear-gradient(90deg,#7c2d12,#f97316)}
+.bar-gold{background:linear-gradient(90deg,#92400e,var(--gold))}
+.card-inner{padding:1.2rem;flex:1;display:flex;flex-direction:column}
+.card-meta{display:flex;align-items:center;gap:.4rem;margin-bottom:.6rem}
+.card-inner h3{font-size:.98rem;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:.45rem}
+.card-inner p{font-size:.83rem;color:var(--muted);line-height:1.55;flex:1}
+.card-foot{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1.2rem;border-top:1px solid var(--border);background:#fafbfc}
+.diff{font-size:.67rem;font-weight:800;padding:.15rem .55rem;border-radius:4px;text-transform:uppercase;letter-spacing:.4px}
+.diff-easy{background:#d1fae5;color:#065f46}
+.diff-med{background:#fef3c7;color:#92400e}
+.diff-hard{background:#fee2e2;color:#991b1b}
+.min-read{font-size:.72rem;color:var(--muted);font-weight:500}
+.arrow-link{display:inline-flex;align-items:center;gap:.3rem;color:var(--navy);font-weight:700;font-size:.8rem;text-decoration:none;transition:color .2s}
+.arrow-link:hover{color:var(--gold)}
+
+/* empty state */
+.empty{display:none;padding:3rem;text-align:center;color:var(--muted)}
+.empty.show{display:block}
+.empty h3{color:var(--navy);font-size:1.1rem;margin-bottom:.4rem}
+
+/* ── SIDEBAR ── */
+.sidebar{display:flex;flex-direction:column;gap:1.4rem;position:sticky;top:76px}
+.sb-card{background:#fff;border-radius:14px;border:1px solid var(--border);overflow:hidden}
+.sb-head{padding:.85rem 1.15rem;border-bottom:1px solid var(--border);font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:var(--navy);display:flex;align-items:center;gap:.4rem}
+.sb-body{padding:1rem 1.15rem}
+
+/* CTA card */
+.cta-card{background:linear-gradient(135deg,var(--navy) 0%,#1e3a7b 100%);border-radius:14px;padding:1.5rem;text-align:center;position:relative;overflow:hidden}
+.cta-card::before{content:'⚡';position:absolute;top:-10px;right:-10px;font-size:5rem;opacity:.05}
+.cta-card h3{color:#fff;font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;margin-bottom:.45rem}
+.cta-card p{color:rgba(255,255,255,.6);font-size:.82rem;margin-bottom:1.1rem;line-height:1.5}
+.btn-gold{display:block;background:var(--gold);color:var(--navy);font-weight:800;font-size:.875rem;padding:.7rem 1.2rem;border-radius:9px;text-decoration:none;text-align:center;transition:all .2s}
+.btn-gold:hover{background:var(--gold2);transform:scale(1.02)}
+.btn-ghost{display:block;margin-top:.6rem;color:rgba(255,255,255,.6);font-size:.79rem;text-align:center;text-decoration:none;transition:color .2s}
+.btn-ghost:hover{color:#fff}
+
+/* cutoff table */
+.co-table{width:100%;border-collapse:collapse;font-size:.8rem}
+.co-table th{background:var(--navy);color:var(--gold);padding:.45rem .65rem;text-align:left;font-size:.65rem;text-transform:uppercase;letter-spacing:.5px}
+.co-table td{padding:.45rem .65rem;border-bottom:1px solid #f1f5f9;vertical-align:middle}
+.co-table tr:last-child td{border-bottom:none}
+.co-table tr:nth-child(even) td{background:#f8fafc}
+.score-hi{color:var(--red);font-weight:700}
+.score-lo{color:var(--green);font-weight:700}
+.badge-dot{width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0}
+.dot-red{background:#dc2626}
+.dot-orange{background:#f97316}
+.dot-yellow{background:#d97706}
+.dot-green{background:#059669}
+
+/* timeline */
+.tl{display:flex;flex-direction:column}
+.tl-row{display:flex;gap:.7rem;padding-bottom:.9rem;position:relative}
+.tl-row:not(:last-child)::after{content:'';position:absolute;left:13px;top:26px;bottom:0;width:2px;background:var(--border)}
+.tl-dot{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:800;flex-shrink:0;z-index:1;position:relative}
+.dot-navy{background:var(--navy);color:var(--gold)}
+.dot-gold{background:var(--gold);color:var(--navy)}
+.dot-gray{background:var(--border);color:var(--muted)}
+.tl-content{padding-top:2px}
+.tl-when{font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:var(--muted)}
+.tl-what{font-size:.82rem;font-weight:700;color:var(--navy);margin-top:.1rem}
+.tl-note{font-size:.76rem;color:var(--muted);margin-top:.1rem;line-height:1.45}
+
+/* quick links */
+.ql-item{display:flex;align-items:center;gap:.5rem;padding:.55rem 0;border-bottom:1px solid #f1f5f9;text-decoration:none;color:var(--navy);font-size:.85rem;font-weight:600;transition:color .2s}
+.ql-item:last-child{border-bottom:none;padding-bottom:0}
+.ql-item:hover{color:var(--gold)}
+
+/* ── ARTICLE MODAL ── */
+.overlay{display:none;position:fixed;inset:0;background:rgba(7,14,34,.75);z-index:300;overflow-y:auto;padding:2rem 1rem;backdrop-filter:blur(6px)}
+.overlay.open{display:flex;align-items:flex-start;justify-content:center}
+.modal{background:#fff;border-radius:20px;max-width:780px;width:100%;overflow:hidden;position:relative;animation:slideUp .3s ease}
+@keyframes slideUp{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}
+.modal-top{background:linear-gradient(135deg,var(--navy) 0%,#1e3a7b 100%);padding:2.5rem 2.5rem 2rem;position:relative;overflow:hidden}
+.modal-top::after{content:'';position:absolute;top:-60px;right:-60px;width:240px;height:240px;border-radius:50%;background:rgba(245,166,35,.08)}
+.close-btn{position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,.12);border:none;color:#fff;width:34px;height:34px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:1}
+.close-btn:hover{background:rgba(255,255,255,.25)}
+.modal-top h1{color:#fff;font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;line-height:1.2;margin-top:.65rem;position:relative;z-index:1}
+.modal-top .sub{color:rgba(255,255,255,.6);font-size:.9rem;margin-top:.55rem;position:relative;z-index:1}
+.modal-body{padding:2rem 2.5rem 2.5rem}
+.modal-body h2{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:var(--navy);margin:1.6rem 0 .55rem;padding-bottom:.35rem;border-bottom:2px solid var(--gold);display:inline-block}
+.modal-body p{font-size:.92rem;color:#374151;margin-bottom:.85rem;line-height:1.7}
+.modal-body ul{padding-left:1.4rem;margin-bottom:.9rem}
+.modal-body ul li{font-size:.9rem;color:#374151;margin-bottom:.4rem;line-height:1.6}
+.modal-body strong{color:var(--navy)}
+.info-box{background:#eff6ff;border-left:4px solid #2563eb;padding:.85rem 1rem;border-radius:0 8px 8px 0;margin:1rem 0 1.2rem;font-size:.875rem;color:#1e3a5f;line-height:1.65}
+.warn-box{background:#fffbeb;border-left:4px solid var(--gold);padding:.85rem 1rem;border-radius:0 8px 8px 0;margin:1rem 0 1.2rem;font-size:.875rem;color:#78350f;line-height:1.65}
+.tip-box{background:#f0fdf4;border-left:4px solid #059669;padding:.85rem 1rem;border-radius:0 8px 8px 0;margin:1rem 0 1.2rem;font-size:.875rem;color:#064e3b;line-height:1.65}
+.art-table{width:100%;border-collapse:collapse;font-size:.84rem;margin:1rem 0 1.2rem}
+.art-table th{background:var(--navy);color:var(--gold);padding:.55rem .8rem;text-align:left;font-size:.72rem;text-transform:uppercase;letter-spacing:.4px}
+.art-table td{padding:.55rem .8rem;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}
+.art-table tr:nth-child(even) td{background:#f8fafc}
+.art-table tr:last-child td{border-bottom:none}
+.modal-cta{background:linear-gradient(135deg,var(--navy),#1e3a7b);border-radius:14px;padding:1.5rem;text-align:center;margin-top:2rem}
+.modal-cta h3{color:#fff;font-family:'Syne',sans-serif;font-weight:800;margin-bottom:.45rem}
+.modal-cta p{color:rgba(255,255,255,.6);font-size:.875rem;margin-bottom:1rem;line-height:1.5}
+
+/* 3D floating orbs */
+.orb{position:absolute;border-radius:50%;filter:blur(60px);pointer-events:none;animation:float 6s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+.orb1{width:300px;height:300px;background:rgba(245,166,35,.15);top:-80px;left:-80px;animation-delay:0s}
+.orb2{width:200px;height:200px;background:rgba(59,130,246,.12);bottom:-60px;right:-40px;animation-delay:-3s}
+.orb3{width:150px;height:150px;background:rgba(139,92,246,.1);top:50%;right:20%;animation-delay:-1.5s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .blog-layout{grid-template-columns:1fr}
+  .sidebar{position:static}
+  .feat-card{grid-template-columns:1fr}
+  .feat-visual{min-height:160px}
+  .posts-grid{grid-template-columns:1fr}
+  nav .nav-links a:not(.nav-cta){display:none}
+}
+@media(max-width:500px){.modal-top{padding:1.75rem 1.25rem 1.5rem}.modal-body{padding:1.25rem}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://imatsensei.com" class="nav-logo">⚡ IMAT Sensei</a>
+  <div class="nav-links">
+    <a href="https://imatsensei.com">Home</a>
+    <a href="https://imatsensei.com/#books">Books</a>
+    <a href="https://imatsensei1-ux.github.io/IMAT-Sensei/" target="_blank">Mock Bank</a>
+    <a href="#" class="active">Blog</a>
+    <a href="https://imatsensei.com/#enroll" class="nav-cta">Enroll Now →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+  <div class="hero-eyebrow">🇮🇹 Free Resource Hub · Updated 2026</div>
+  <h1>The Complete Guide to<br><em>Italian Medical School</em></h1>
+  <p class="hero-sub">Real cut-offs. Real scholarships. Real strategy. Everything you need to get in — built by someone who has guided 150+ students through this exact journey.</p>
+  <div class="search-wrap">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search: scholarships, cut-offs, biology, visa…" oninput="doFilter()">
+      <button class="search-btn" onclick="doFilter()">Search</button>
+    </div>
+  </div>
+  <div class="pills-row">
+    <button class="pill active" onclick="setCat('all',this)">All Guides</button>
+    <button class="pill" onclick="setCat('exam',this)">📝 Exam</button>
+    <button class="pill" onclick="setCat('scholarship',this)">💰 Scholarships</button>
+    <button class="pill" onclick="setCat('university',this)">🏛️ Universities</button>
+    <button class="pill" onclick="setCat('strategy',this)">🎯 Strategy</button>
+    <button class="pill" onclick="setCat('visa',this)">✈️ Visa & Admin</button>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 48L60 42.7C120 37.3 240 26.7 360 21.3C480 16 600 16 720 21.3C840 26.7 960 37.3 1080 40C1200 42.7 1320 37.3 1380 34.7L1440 32V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0V48Z" fill="#f0f4fa"/>
+  </svg>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item"><strong>13,495</strong>&nbsp;students sat IMAT 2025</div>
+    <div class="stat-item"><strong>1,644</strong>&nbsp;Medicine seats available</div>
+    <div class="stat-item"><strong>60</strong>&nbsp;questions in 100 min</div>
+    <div class="stat-item"><strong>+1.5 / −0.4</strong>&nbsp;scoring system</div>
+    <div class="stat-item"><strong>Sept 2026</strong>&nbsp;exam date</div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="blog-layout">
+<main>
+
+  <!-- FEATURED -->
+  <div id="featuredSection">
+    <div class="sec-label">⭐ Start Here</div>
+    <a href="#" class="feat-card" onclick="open_art('cutoffs');return false;">
+      <div class="feat-visual">
+        <div class="feat-3d">
+          <div class="big">72.9</div>
+          <div class="lbl">Milan non-EU cut-off 2025<br>↓ from 75.7 in 2024</div>
+        </div>
+      </div>
+      <div class="feat-content">
+        <span class="post-badge badge-exam">Exam Analysis</span>
+        <h2>Official 2025 Cut-off Scores — Every University, EU & Non-EU</h2>
+        <p>The most important data you need before choosing a target university. Real 2023–2025 figures for all 17 universities, what they mean for 2026, and how to set a score goal that actually gets you in.</p>
+        <span class="read-more">Read the full guide <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+    </a>
+  </div>
+
+  <!-- POSTS -->
+  <div class="sec-label">📚 All Guides</div>
+  <div class="posts-grid" id="grid">
+
+    <a href="#" class="post-card" data-cat="scholarship" onclick="open_art('dsu');return false;">
+      <div class="card-bar bar-green"></div>
+      <div class="card-inner">
+        <div class="card-meta"><span class="post-badge badge-scholarship">Scholarship</span><span class="min-read">· 9 min</span></div>
+        <h3>DSU Scholarship: Free Tuition + Up to €7,000 Cash Per Year — Full Guide</h3>
+        <p>Italy's regional scholarship is the single best financial opportunity for IMAT students. Here's exactly what it covers, who qualifies, and the step-by-step process — including the ISEE Parificato.</p>
+      </div>
+      <div class="card-foot"><span class="diff diff-easy">Income-based</span><span class="arrow-link">Read <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+    </a>
+
+    <a href="#" class="post-card" data-cat="university" onclick="open_art('universities');return false;">
+      <div class="card-bar bar-purple"></div>
+      <div class="card-inner">
+        <div class="card-meta"><span class="post-badge badge-university">Universities</span><span class="min-read">· 11 min</span></div>
+        <h3>Every IMAT University Compared: Seats, Cut-offs, Cost of Living & Scholarships</h3>
+        <p>From Pavia (cut-off 71.9) to Bari (cut-off 50.9) — a comprehensive side-by-side of all 17 universities so you can make the right choice for your score and situation.</p>
+      </div>
+      <div class="card-foot"><span class="diff diff-med">Strategic</span><span class="arrow-link">Read <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+    </a>
+
+    <a href="#" class="post-card" data-cat="exam" onclick="open_art('biology');return false;">
+      <div class="card-bar bar-navy"></div>
+      <div class="card-inner">
+        <div class="card-meta"><span class="post-badge badge-exam">Biology</span><span class="min-read">· 8 min</span></div>
+        <h3>IMAT Biology Deep-Dive: The Topics That Dominated 2025 and What to Prioritise Now</h3>
+        <p>Cellular respiration was 30% of the 2025 biology section alone. Here's the complete topic breakdown across 2024–2025 and your priority study list for 2026.</p>
+      </div>
+      <div class="card-foot"><span class="diff diff-hard">High-yield</span><span class="arrow-link">Read <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+    </a>
+
+    <a href="#" class="post-card" data-cat="scholarship" onclick="open_art('maeci');return false;">
+      <div class="card-bar bar-green"></div>
+      <div class="card-inner">
+        <div class="card-meta"><span class="post-badge badge-scholarship">Scholarship</span><span class="min-read">· 6 min</span></div>
+        <h3>MAECI Italian Government Scholarship: Non-EU Students Only — Complete Guide</h3>
+        <p>The Italian Ministry of Foreign Affairs offers a competitive national scholarship covering living costs and tuition. Only non-EU students can apply — here's every detail.</p>
+      </div>
+      <div class="card-foot"><span class="diff diff-hard">Competitive</span><span class="arrow-link">Read <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+    </a>
+
+    <a href="#" class="post-card" data-cat="visa" onclick="open_art('visa');return false;">
+      <div class="card-bar bar-orange"></div>
+      <div class="card-inner">
+        <div class="card-meta"><span class="post-badge badge-visa">Visa & Admin</span><span class="min-read">· 10 min</span></div>
+        <h3>Non-EU Students: The Exact Bureaucratic Timeline From Pre-Enrollment to Visa D</h3>
+        <p>One missed deadline = one wasted year. Here is the complete month-by-month sequence non-EU students must follow — with every form, platform, and deadline explained.</p>
+      </div>
+      <div class="card-foot"><span class="diff diff-hard">Critical</span><span class="arrow-link">Read <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+    </a>
+
+    <a href="#" class="post-card" data-cat="strategy" onclick="open_art('studyplan');return false;">
+      <div class="card-bar bar-gold"></div>
+      <div class="card-inner">
+        <div class="card-meta"><span class="post-badge badge-strategy">Strategy</span><span class="min-read">· 7 min</span></div>
+        <h3>The 15-Week IMAT Study Plan: Phase-by-Phase From Foundation to Exam Day</h3>
+        <p>Exactly what to study in each phase — Foundation, Build, Integration, and Peak — so you walk into September having covered everything and practiced under real conditions.</p>
+      </div>
+      <div class="card-foot"><span class="diff diff-med">Step-by-step</span><span class="arrow-link">Read <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+    </a>
+
+    <a href="#" class="post-card" data-cat="exam" onclick="open_art('chemistry');return false;">
+      <div class="card-bar bar-navy"></div>
+      <div class="card-inner">
+        <div class="card-meta"><span class="post-badge badge-exam">Chemistry</span><span class="min-read">· 6 min</span></div>
+        <h3>IMAT Chemistry: How to Prepare for Both Calculation-Heavy and Theory-Heavy Papers</h3>
+        <p>2024 was stoichiometry-dominated. 2025 flipped to pure theory. You cannot know which 2026 will be. Here's how to prepare for both — and what's always high-yield regardless.</p>
+      </div>
+      <div class="card-foot"><span class="diff diff-med">Must-know</span><span class="arrow-link">Read <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+    </a>
+
+    <a href="#" class="post-card" data-cat="visa" onclick="open_art('isee');return false;">
+      <div class="card-bar bar-orange"></div>
+      <div class="card-inner">
+        <div class="card-meta"><span class="post-badge badge-visa">Visa & Admin</span><span class="min-read">· 8 min</span></div>
+        <h3>ISEE Parificato: The Document That Unlocks Your Scholarship (Start 4 Months Early)</h3>
+        <p>The #1 reason students miss their DSU scholarship deadline. It takes 2–4 months to obtain. Here is exactly what it is, how to get it, and the country-specific document list.</p>
+      </div>
+      <div class="card-foot"><span class="diff diff-hard">Start early</span><span class="arrow-link">Read <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+    </a>
+
+    <a href="#" class="post-card" data-cat="strategy" onclick="open_art('scoring');return false;">
+      <div class="card-bar bar-gold"></div>
+      <div class="card-inner">
+        <div class="card-meta"><span class="post-badge badge-strategy">Strategy</span><span class="min-read">· 5 min</span></div>
+        <h3>IMAT Scoring Maths: When to Answer, When to Skip, When to Guess</h3>
+        <p>+1.5 correct, −0.4 wrong, 0 blank. This changes everything about how you approach 60 questions in 100 minutes. Here's the optimal strategy backed by expected-value maths.</p>
+      </div>
+      <div class="card-foot"><span class="diff diff-easy">Quick win</span><span class="arrow-link">Read <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+    </a>
+
+    <a href="#" class="post-card" data-cat="university" onclick="open_art('euvsnoneu');return false;">
+      <div class="card-bar bar-purple"></div>
+      <div class="card-inner">
+        <div class="card-meta"><span class="post-badge badge-university">Universities</span><span class="min-read">· 7 min</span></div>
+        <h3>EU vs Non-EU: Two Completely Separate Competitions — How the Ranking System Works</h3>
+        <p>You never compete against the other group. Separate seats, separate lists, different strategies. This is the single most misunderstood fact about IMAT admissions.</p>
+      </div>
+      <div class="card-foot"><span class="diff diff-med">Must-read</span><span class="arrow-link">Read <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+    </a>
+
+    <a href="#" class="post-card" data-cat="scholarship" onclick="open_art('scholarship_map');return false;">
+      <div class="card-bar bar-green"></div>
+      <div class="card-inner">
+        <div class="card-meta"><span class="post-badge badge-scholarship">Scholarship</span><span class="min-read">· 12 min</span></div>
+        <h3>University-by-University Scholarship Map: Which Italian City Has the Easiest Process?</h3>
+        <p>Turin, Bari, Parma, Naples — some regional scholarship agencies are far simpler than others. Here's the full breakdown with difficulty ratings for every city.</p>
+      </div>
+      <div class="card-foot"><span class="diff diff-easy">Detailed</span><span class="arrow-link">Read <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+    </a>
+
+    <a href="#" class="post-card" data-cat="exam" onclick="open_art('physics_maths');return false;">
+      <div class="card-bar bar-navy"></div>
+      <div class="card-inner">
+        <div class="card-meta"><span class="post-badge badge-exam">Physics & Maths</span><span class="min-read">· 6 min</span></div>
+        <h3>IMAT Physics & Maths: 13 Questions, Maximum Points With Minimum Study Time</h3>
+        <p>Electricity is always tested. Algebra is always tested. Here's the complete topic priority list for both sections so you don't waste time on topics that never appear.</p>
+      </div>
+      <div class="card-foot"><span class="diff diff-med">High-leverage</span><span class="arrow-link">Read <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+    </a>
+
+  </div>
+  <div class="empty" id="empty"><h3>No results found</h3><p>Try a different search or category.</p></div>
+</main>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+
+  <!-- CTA -->
+  <div class="cta-card">
+    <h3>IMAT 2026 is in September</h3>
+    <p>Get all 5 subject books + live revision sessions + WhatsApp support — everything you need in one place.</p>
+    <a href="https://imatsensei.com/#enroll" class="btn-gold">Get the Bundle — €69 →</a>
+    <a href="https://imatsensei1-ux.github.io/IMAT-Sensei/" class="btn-ghost" target="_blank">Preview Mock Bank ↗</a>
+  </div>
+
+  <!-- CUT-OFF TABLE -->
+  <div class="sb-card">
+    <div class="sb-head">📊 2025 Official Non-EU Cut-offs</div>
+    <div style="padding:0">
+      <table class="co-table">
+        <thead><tr><th></th><th>University</th><th>2024</th><th>2025</th></tr></thead>
+        <tbody>
+          <tr><td><span class="badge-dot dot-red"></span></td><td>Milan</td><td class="score-hi">75.7</td><td>72.9</td></tr>
+          <tr><td><span class="badge-dot dot-red"></span></td><td>Pavia</td><td class="score-hi">71.5</td><td>71.9</td></tr>
+          <tr><td><span class="badge-dot dot-red"></span></td><td>Bologna</td><td class="score-hi">74.5</td><td>71.1</td></tr>
+          <tr><td><span class="badge-dot dot-orange"></span></td><td>Tor Vergata</td><td>60.6</td><td>69.1</td></tr>
+          <tr><td><span class="badge-dot dot-orange"></span></td><td>Parma</td><td>59.1</td><td>67.6</td></tr>
+          <tr><td><span class="badge-dot dot-orange"></span></td><td>Turin</td><td>70.8</td><td>67.1</td></tr>
+          <tr><td><span class="badge-dot dot-orange"></span></td><td>Sapienza</td><td>73.4</td><td>65.8</td></tr>
+          <tr><td><span class="badge-dot dot-orange"></span></td><td>Padova</td><td>71.6</td><td>65.4</td></tr>
+          <tr><td><span class="badge-dot dot-orange"></span></td><td>Bicocca</td><td>72.6</td><td>65.1</td></tr>
+          <tr><td><span class="badge-dot dot-yellow"></span></td><td>Federico II</td><td>68.1</td><td>63.1</td></tr>
+          <tr><td><span class="badge-dot dot-yellow"></span></td><td>Cagliari</td><td>56.5</td><td>54.7</td></tr>
+          <tr><td><span class="badge-dot dot-green"></span></td><td>Marche</td><td>60.3</td><td>58.2</td></tr>
+          <tr><td><span class="badge-dot dot-green"></span></td><td>Messina</td><td>61.4</td><td>58.2</td></tr>
+          <tr><td><span class="badge-dot dot-green"></span></td><td>Bari</td><td class="score-hi">65.8</td><td class="score-lo">50.9</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:.68rem;color:var(--muted);padding:.5rem .65rem">Source: Italian MUR official results. Verify at universitaly.it</p>
+    </div>
+  </div>
+
+  <!-- TIMELINE — dynamic based on current month -->
+  <div class="sb-card">
+    <div class="sb-head">📅 Key Deadlines (Recurring Each Year)</div>
+    <div class="sb-body">
+      <div class="tl">
+        <div class="tl-row"><div class="tl-dot dot-navy">1</div><div class="tl-content"><div class="tl-when">Mar – Apr</div><div class="tl-what">Start ISEE Parificato process</div><div class="tl-note">Non-EU: get home-country income docs. Takes 2–4 months — do NOT leave this late.</div></div></div>
+        <div class="tl-row"><div class="tl-dot dot-navy">2</div><div class="tl-content"><div class="tl-when">Apr – May</div><div class="tl-what">Pre-enrollment on Universitaly</div><div class="tl-note">Non-EU must choose ONE university. EU students can rank up to 13.</div></div></div>
+        <div class="tl-row"><div class="tl-dot dot-navy">3</div><div class="tl-content"><div class="tl-when">May – Jun</div><div class="tl-what">Submit docs to Italian Embassy</div><div class="tl-note">Non-EU only. Bring pre-enrollment confirmation + high school diploma.</div></div></div>
+        <div class="tl-row"><div class="tl-dot dot-navy">4</div><div class="tl-content"><div class="tl-when">July</div><div class="tl-what">IMAT registration opens</div><div class="tl-note">Register for the exam on Universitaly. Do not miss this window.</div></div></div>
+        <div class="tl-row"><div class="tl-dot dot-gold">★</div><div class="tl-content"><div class="tl-when">~17 September</div><div class="tl-what">IMAT Exam Day</div><div class="tl-note">60 questions, 100 minutes. This is the only day that matters.</div></div></div>
+        <div class="tl-row"><div class="tl-dot dot-navy">5</div><div class="tl-content"><div class="tl-when">October</div><div class="tl-what">Rankings published</div><div class="tl-note">EU: scrolling begins. Non-EU: check your university's site. Enroll within 4 working days.</div></div></div>
+        <div class="tl-row"><div class="tl-dot dot-navy">6</div><div class="tl-content"><div class="tl-when">Oct – Nov</div><div class="tl-what">DSU Scholarship deadline</div><div class="tl-note">Submit ISEE Parificato to your university's scholarship portal. Upload rent contract for Fuori Sede status.</div></div></div>
+        <div class="tl-row" style="padding-bottom:0"><div class="tl-dot dot-navy">7</div><div class="tl-content"><div class="tl-when">Within 8 days of arrival</div><div class="tl-what">Apply for Permesso di Soggiorno</div><div class="tl-note">Non-EU: go to post office with Kit Postale forms. Do not delay — it's legally required.</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUICK LINKS -->
+  <div class="sb-card">
+    <div class="sb-head">🔗 Official Resources</div>
+    <div class="sb-body" style="padding:.6rem 1.15rem">
+      <a href="https://universitaly.it" target="_blank" class="ql-item">🇮🇹 Universitaly.it — Pre-enroll & Register</a>
+      <a href="https://imatsensei1-ux.github.io/IMAT-Sensei/" target="_blank" class="ql-item">📝 IMAT Sensei Mock Bank</a>
+      <a href="https://imatsensei.com" class="ql-item">⚡ Books & Revision Batch</a>
+      <a href="https://esteri.it/en/opportunita/borse-di-studio" target="_blank" class="ql-item">🏛️ MAECI Scholarship Portal</a>
+    </div>
+  </div>
+
+</aside>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     ARTICLE MODALS
+═══════════════════════════════════════════ -->
+
+<!-- ① CUT-OFFS -->
+<div class="overlay" id="art-cutoffs" onclick="closeIfBg(event,'art-cutoffs')">
+<div class="modal">
+  <button class="close-btn" onclick="close_art('art-cutoffs')">×</button>
+  <div class="modal-top">
+    <span class="post-badge badge-exam">Exam Analysis</span>
+    <h1>Official 2025 Cut-off Scores — Every University, EU & Non-EU</h1>
+    <p class="sub">Real data from the Italian Ministry of Education. Use this to set a score goal that is grounded in reality — not guesswork.</p>
+  </div>
+  <div class="modal-body">
+    <h2>Why Cut-offs Are Not a Fixed Target</h2>
+    <p>Cut-offs shift every single year based on how many students applied, how hard the exam was, and how many seats were available. Bari's non-EU cut-off was 31.2 in 2023, jumped to 65.8 in 2024, then fell back to 50.9 in 2025. A student who used 2023 as a target in 2024 did not get in. The correct approach: pick your target cities, find the relevant cut-offs across multiple years, add a 3–5 point buffer, and build your preparation toward that number.</p>
+    <div class="warn-box">⚠️ <strong>Never use a single year's cut-off as your target.</strong> Plan for a competitive paper, not the easiest one in recent history.</div>
+    <h2>2025 Official Non-EU Cut-offs (Most Recent Exam)</h2>
+    <table class="art-table">
+      <thead><tr><th>University</th><th>Field</th><th>Non-EU Seats</th><th>2023</th><th>2024</th><th>2025 ★</th><th>Level</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Milan</strong></td><td>Medicine</td><td>15</td><td>60.2</td><td>75.7</td><td><strong>72.9</strong></td><td>🔴 Hardest</td></tr>
+        <tr><td><strong>Pavia</strong></td><td>Medicine</td><td>35</td><td>53.3</td><td>71.5</td><td><strong>71.9</strong></td><td>🔴 Hardest</td></tr>
+        <tr><td><strong>Bologna</strong></td><td>Medicine</td><td>20</td><td>59.1</td><td>74.5</td><td><strong>71.1</strong></td><td>🔴 Hardest</td></tr>
+        <tr><td><strong>Sapienza</strong></td><td>Dentistry</td><td>6</td><td>59.1</td><td>73.1</td><td><strong>71.8</strong></td><td>🔴 Hardest</td></tr>
+        <tr><td><strong>Tor Vergata</strong></td><td>Medicine</td><td>20</td><td>53.4</td><td>60.6</td><td><strong>69.1</strong></td><td>🟠 High</td></tr>
+        <tr><td><strong>Parma</strong></td><td>Medicine</td><td>45</td><td>50.1</td><td>59.1</td><td><strong>67.6</strong></td><td>🟠 Rising</td></tr>
+        <tr><td><strong>Turin</strong></td><td>Medicine</td><td>30</td><td>49.0</td><td>70.8</td><td><strong>67.1</strong></td><td>🟠 High</td></tr>
+        <tr><td><strong>Sapienza</strong></td><td>Medicine</td><td>13</td><td>50.8</td><td>73.4</td><td><strong>65.8</strong></td><td>🟠 High</td></tr>
+        <tr><td><strong>Vanvitelli</strong></td><td>Medicine</td><td>50</td><td>47.3</td><td>63.2</td><td><strong>66.2</strong></td><td>🟠 High</td></tr>
+        <tr><td><strong>Padova</strong></td><td>Medicine</td><td>25</td><td>49.5</td><td>71.6</td><td><strong>65.4</strong></td><td>🟠 High</td></tr>
+        <tr><td><strong>Bicocca</strong></td><td>Medicine</td><td>18</td><td>54.2</td><td>72.6</td><td><strong>65.1</strong></td><td>🟠 High</td></tr>
+        <tr><td><strong>Federico II</strong></td><td>Medicine</td><td>45</td><td>52.0</td><td>68.1</td><td><strong>63.1</strong></td><td>🟡 Moderate</td></tr>
+        <tr><td><strong>Cagliari</strong></td><td>Medicine</td><td>20</td><td>—</td><td>56.5</td><td><strong>54.7</strong></td><td>🟡 Moderate</td></tr>
+        <tr><td><strong>Marche</strong></td><td>Medicine</td><td>60</td><td>43.0</td><td>60.3</td><td><strong>58.2</strong></td><td>🟢 Accessible</td></tr>
+        <tr><td><strong>Messina</strong></td><td>Medicine</td><td>56</td><td>36.9</td><td>61.4</td><td><strong>58.2</strong></td><td>🟢 Accessible</td></tr>
+        <tr><td><strong>Bari</strong></td><td>Medicine</td><td>11</td><td>31.2</td><td>65.8</td><td><strong>50.9</strong></td><td>🟢 Variable</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:.8rem;color:var(--muted)">Source: Italian Ministry of Education official 2025 IMAT results. Always verify at universitaly.it.</p>
+    <h2>What Score Should You Target for 2026?</h2>
+    <p>Based on the 2023–2025 trend: exam difficulty in 2025 was higher than 2024, which pulled most non-EU cut-offs down slightly from 2024 peaks. For 2026, assume moderate-to-high difficulty. Add a 3–5 point buffer above the 2025 figure for your target university.</p>
+    <table class="art-table">
+      <thead><tr><th>Target Score</th><th>What It Unlocks</th></tr></thead>
+      <tbody>
+        <tr><td><strong>72+</strong></td><td>All universities including Milan, Pavia, Bologna (most competitive)</td></tr>
+        <tr><td><strong>65–71</strong></td><td>Turin, Tor Vergata, Parma, Padova, Bicocca, Sapienza (Medicine)</td></tr>
+        <tr><td><strong>58–64</strong></td><td>Federico II Naples, Marche, Messina</td></tr>
+        <tr><td><strong>50–57</strong></td><td>Cagliari, Bari (variable — never assume these are easy)</td></tr>
+      </tbody>
+    </table>
+    <div class="tip-box">✅ <strong>Strategy:</strong> Biology + Chemistry = 63% of all available points. Students who master these two sections and perform adequately elsewhere can reach 70+ even with average performance in physics, maths, and logic.</div>
+    <div class="modal-cta">
+      <h3>Practice With Real IMAT Conditions</h3>
+      <p>Full 60-question timed mocks, score tracking, and detailed answer explanations — all in the IMAT Sensei Mock Bank and Revision Batch.</p>
+      <a href="https://imatsensei.com/#enroll" class="btn-gold">Join the Revision Batch →</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ② DSU SCHOLARSHIP -->
+<div class="overlay" id="art-dsu" onclick="closeIfBg(event,'art-dsu')">
+<div class="modal">
+  <button class="close-btn" onclick="close_art('art-dsu')">×</button>
+  <div class="modal-top">
+    <span class="post-badge badge-scholarship">Scholarship</span>
+    <h1>DSU Scholarship: Free Tuition + Up to €7,000 Cash Per Year</h1>
+    <p class="sub">Italy's regional scholarship is the most powerful financial opportunity for IMAT students. Here is everything you need to know — completely free.</p>
+  </div>
+  <div class="modal-body">
+    <h2>What is the DSU?</h2>
+    <p>"Diritto allo Studio Universitario" — the Right to University Study. Every Italian region runs a welfare system that provides income-eligible students with free or subsidised education. For medicine students this is far and away the most valuable scholarship available. It does not require a minimum IMAT score. Any enrolled student who meets the income threshold can apply in Year 1.</p>
+    <h2>What It Covers</h2>
+    <table class="art-table">
+      <thead><tr><th>Benefit</th><th>Detail</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Tuition Waiver</strong></td><td>100% — you pay only the €156 regional tax (tassa regionale). Saves €1,000–€3,000/year.</td></tr>
+        <tr><td><strong>Cash Stipend</strong></td><td>€2,400–€7,000/year depending on student status and ISEE value</td></tr>
+        <tr><td><strong>University Housing</strong></td><td>Free bed in a university dorm (priority to scholarship holders)</td></tr>
+        <tr><td><strong>Free Meals</strong></td><td>University canteen (mensa) access — free or heavily subsidised</td></tr>
+        <tr><td><strong>Transport</strong></td><td>Some regions (e.g. Turin/EDISU) include public transport discounts</td></tr>
+      </tbody>
+    </table>
+    <h2>How Much Will You Get?</h2>
+    <p>The amount depends on your <strong>student status</strong> — how far you live from the university.</p>
+    <table class="art-table">
+      <thead><tr><th>Status</th><th>Condition</th><th>Annual Stipend</th></tr></thead>
+      <tbody>
+        <tr><td>On-Site (Sede)</td><td>Same city, within 40km/40min</td><td>~€2,400–€3,000</td></tr>
+        <tr><td>Commuter (Pendolare)</td><td>40–80km away, daily commute</td><td>~€3,500–€4,500</td></tr>
+        <tr><td><strong>Off-Site (Fuori Sede)</strong></td><td>Over 80km, renting near university</td><td><strong>~€5,000–€7,000</strong></td></tr>
+      </tbody>
+    </table>
+    <div class="tip-box">✅ <strong>Most international students qualify as Fuori Sede</strong> because they come from abroad — automatically giving you the highest stipend tier. Upload your rent contract to the scholarship portal to confirm this. Do not skip this step.</div>
+    <h2>Income Thresholds (ISEE Parificato)</h2>
+    <ul>
+      <li><strong>ISEE below ~€13,153:</strong> Maximum grant — full stipend + full tuition waiver</li>
+      <li><strong>ISEE €13,153–€26,306:</strong> Partial grant — tuition waiver + reduced stipend</li>
+      <li><strong>ISEE above ~€26,306:</strong> Not eligible for DSU scholarship</li>
+    </ul>
+    <p style="font-size:.82rem;color:var(--muted)">Exact thresholds vary slightly by region and year. Always check the current year's bando on your university's scholarship portal.</p>
+    <h2>Year 2 Merit Requirement</h2>
+    <p>From Year 2 onwards, you must have passed at least <strong>20 CFU (ECTS credits)</strong> by the November deadline of your first year. Miss this threshold and your scholarship is revoked — and you may be required to repay funds already received. Make passing first-year exams a priority.</p>
+    <h2>The Critical Document: ISEE Parificato</h2>
+    <p>International students need a special income assessment called the ISEE Parificato. It requires official income documents from your home country, certified translations, and submission to a CAF (tax assistance centre) in Italy. The process typically takes <strong>2–4 months</strong>.</p>
+    <div class="warn-box">⚠️ <strong>Start the ISEE Parificato process in March or April</strong> every year. Missing the scholarship deadline because your ISEE wasn't ready in time is the single most common and avoidable mistake IMAT students make. Turin is an exception — EDISU Piedmont calculates it directly, removing this step.</div>
+    <div class="modal-cta">
+      <h3>Get Personalised Scholarship Guidance</h3>
+      <p>Revision Batch students receive a dedicated enrollment and scholarship session covering their specific university, country documents, and application steps.</p>
+      <a href="https://imatsensei.com/#enroll" class="btn-gold">Join the Revision Batch →</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ③ UNIVERSITIES -->
+<div class="overlay" id="art-universities" onclick="closeIfBg(event,'art-universities')">
+<div class="modal">
+  <button class="close-btn" onclick="close_art('art-universities')">×</button>
+  <div class="modal-top">
+    <span class="post-badge badge-university">Universities</span>
+    <h1>Every IMAT University Compared: Seats, Cut-offs, Cost of Living & Scholarships</h1>
+    <p class="sub">Everything you need to make the right university choice — especially if you are non-EU and can only pick one.</p>
+  </div>
+  <div class="modal-body">
+    <h2>The Most Important Decision for Non-EU Students</h2>
+    <p>EU students can rank up to 13 universities in order of preference. If you miss your first choice, you automatically move to your second, third, and so on as seats open up. Non-EU students can only pre-enroll at <strong>one university</strong>. If you don't reach that university's non-EU cut-off, you are not placed anywhere — even if you would have qualified elsewhere. This decision matters enormously.</p>
+    <h2>Full University Comparison</h2>
+    <table class="art-table">
+      <thead><tr><th>University</th><th>City</th><th>Non-EU Seats</th><th>2025 Non-EU Cut-off</th><th>Cost of Living</th><th>Scholarship Difficulty</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Milan (Unimi)</strong></td><td>Milan</td><td>15</td><td>72.9</td><td>🔴 High</td><td>Easy</td></tr>
+        <tr><td><strong>Pavia</strong></td><td>Pavia</td><td>35</td><td>71.9</td><td>🟡 Medium</td><td>Easy (EDISU Pavia)</td></tr>
+        <tr><td><strong>Bologna</strong></td><td>Bologna</td><td>20</td><td>71.1</td><td>🟠 High</td><td>Medium (ER.GO)</td></tr>
+        <tr><td><strong>Sapienza</strong></td><td>Rome</td><td>13</td><td>65.8</td><td>🟠 High</td><td>Medium (LazioDisco)</td></tr>
+        <tr><td><strong>Tor Vergata</strong></td><td>Rome</td><td>20</td><td>69.1</td><td>🟠 High</td><td>Medium (LazioDisco)</td></tr>
+        <tr><td><strong>Turin</strong></td><td>Turin</td><td>30</td><td>67.1</td><td>🟡 Medium</td><td>Easy ★ (no CAF needed)</td></tr>
+        <tr><td><strong>Padova</strong></td><td>Padua</td><td>25</td><td>65.4</td><td>🟡 Medium</td><td>Medium (ESU Padova)</td></tr>
+        <tr><td><strong>Bicocca</strong></td><td>Milan</td><td>18</td><td>65.1</td><td>🔴 High</td><td>Easy</td></tr>
+        <tr><td><strong>Parma</strong></td><td>Parma</td><td>45</td><td>67.6</td><td>🟢 Low-Med</td><td>Easy (ER.GO)</td></tr>
+        <tr><td><strong>Vanvitelli</strong></td><td>Naples</td><td>50</td><td>66.2</td><td>🟢 Low</td><td>Easy (ADiSUrC)</td></tr>
+        <tr><td><strong>Federico II</strong></td><td>Naples</td><td>45</td><td>63.1</td><td>🟢 Low</td><td>Easy (ADiSUrC)</td></tr>
+        <tr><td><strong>Bari</strong></td><td>Bari</td><td>11</td><td>50.9</td><td>🟢 Low</td><td>Easy (ADISU Puglia)</td></tr>
+        <tr><td><strong>Cagliari</strong></td><td>Cagliari</td><td>20</td><td>54.7</td><td>🟢 Low</td><td>Easy (ERSU)</td></tr>
+        <tr><td><strong>Marche</strong></td><td>Ancona</td><td>60</td><td>58.2</td><td>🟢 Low</td><td>Easy (DSU Marche)</td></tr>
+        <tr><td><strong>Messina</strong></td><td>Messina</td><td>56</td><td>58.2</td><td>🟢 Low</td><td>Easy (ERSU)</td></tr>
+      </tbody>
+    </table>
+    <h2>Hidden Gems Worth Serious Consideration</h2>
+    <p><strong>Parma</strong> — 45 non-EU seats, one of the highest allocations in Italy. ER.GO covers both Parma and Bologna with the same application. Lower competition than Bologna itself, cheaper city, very popular with international students.</p>
+    <p><strong>Turin (★)</strong> — EDISU Piedmont is the only scholarship agency in Italy that calculates your ISEE Parificato directly. You do not need to go through a CAF independently. This is a major bureaucratic advantage that is almost never talked about — and it can save you months of stress in your first year.</p>
+    <p><strong>Naples (Federico II or Vanvitelli)</strong> — 45–50 non-EU seats each, one of the lowest costs of living in Italy, and some of the most generous scholarship coverage relative to stipend value. Federico II is one of Italy's oldest and most respected universities.</p>
+    <p><strong>Marche (Ancona)</strong> — 60 non-EU seats, the largest single allocation in Italy. A smaller city, but the highest chance of getting in somewhere if your score is in the mid-50s range.</p>
+    <div class="warn-box">⚠️ <strong>Bari warning:</strong> The cut-off went from 31.2 in 2023 to 65.8 in 2024 then back to 50.9 in 2025. Do not assume Bari is an easy backup — cut-offs are highly volatile, especially at universities with few seats. Always plan for a higher cut-off than the most recent figure.</div>
+    <div class="modal-cta">
+      <h3>Get Personalised University Guidance</h3>
+      <p>Revision Batch students get a dedicated session on university selection based on their target score, nationality, and scholarship strategy.</p>
+      <a href="https://imatsensei.com/#enroll" class="btn-gold">Join the Revision Batch →</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ④ BIOLOGY -->
+<div class="overlay" id="art-biology" onclick="closeIfBg(event,'art-biology')">
+<div class="modal">
+  <button class="close-btn" onclick="close_art('art-biology')">×</button>
+  <div class="modal-top">
+    <span class="post-badge badge-exam">Biology</span>
+    <h1>IMAT Biology Deep-Dive: What Dominated 2025 and What to Prioritise for 2026</h1>
+    <p class="sub">23 questions. 34.5 points maximum. The single highest-leverage section in the exam.</p>
+  </div>
+  <div class="modal-body">
+    <h2>Why Biology Is Your Most Important Subject</h2>
+    <p>Biology carries 38% of all available points. Getting biology right is the biggest single lever on your final score. The IMAT writers since 2023 have concentrated questions heavily on 1–2 topics per year, meaning surface-level coverage of everything is not enough — you need deep understanding of the high-yield areas.</p>
+    <h2>2025 Biology Breakdown (23 Questions)</h2>
+    <table class="art-table">
+      <thead><tr><th>Topic</th><th>2025 Qs</th><th>2024 Qs</th><th>Priority</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Cellular Respiration</strong></td><td><strong>7 (30%!)</strong></td><td>2</td><td>⭐⭐⭐⭐⭐ Critical</td></tr>
+        <tr><td>Muscles & Locomotion</td><td>3</td><td>0</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td>Enzymes</td><td>2</td><td>0</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td>Eukaryotic Cells</td><td>2</td><td>0</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td>Biological Reactions</td><td>2</td><td>0</td><td>⭐⭐⭐</td></tr>
+        <tr><td>Cell Membranes</td><td>1</td><td>1</td><td>⭐⭐⭐</td></tr>
+        <tr><td>Gas Transport in Blood</td><td>1</td><td>0</td><td>⭐⭐⭐</td></tr>
+        <tr><td>Genetics & Inheritance</td><td>0</td><td>4</td><td>⭐⭐⭐⭐⭐ Critical</td></tr>
+        <tr><td>Cell Organelles</td><td>0</td><td>4</td><td>⭐⭐⭐⭐⭐ Critical</td></tr>
+        <tr><td>Translation / Central Dogma</td><td>0</td><td>3</td><td>⭐⭐⭐⭐⭐ Critical</td></tr>
+      </tbody>
+    </table>
+    <div class="warn-box">⚠️ Genetics had 4 questions in 2024 and 0 in 2025. Cell Organelles had 4 in 2024 and 0 in 2025. Topics that disappear one year often return the next. Do not skip any critical topic just because it wasn't tested recently.</div>
+    <h2>Your Priority Study List for 2026</h2>
+    <ul>
+      <li><strong>Cellular Respiration</strong> — glycolysis, Krebs cycle, oxidative phosphorylation, chemiosmosis, ATP yield, fermentation. Go deep. This can be 30% of biology again.</li>
+      <li><strong>Cell Biology & Organelles</strong> — structure and function of every organelle, differences between prokaryotic and eukaryotic cells, plant vs animal cells.</li>
+      <li><strong>Genetics & Inheritance</strong> — Mendelian genetics, co-dominance, sex-linkage, pedigree analysis, chromosomal disorders.</li>
+      <li><strong>Central Dogma (DNA/RNA/Protein)</strong> — DNA replication, transcription, translation, genetic code, mutations, gene regulation.</li>
+      <li><strong>Enzymes</strong> — enzyme kinetics, Michaelis-Menten, inhibition types, cofactors, activation energy, pH and temperature effects.</li>
+      <li><strong>Cell Membranes & Transport</strong> — fluid mosaic model, passive and active transport, osmosis, endocytosis/exocytosis.</li>
+      <li><strong>Muscles & Physiology</strong> — sliding filament model, neuromuscular junction, muscle fibre types, cardiac vs skeletal muscle.</li>
+      <li><strong>Biological Molecules</strong> — structure and function of carbohydrates, lipids, proteins, nucleic acids.</li>
+    </ul>
+    <div class="modal-cta">
+      <h3>Get the IMAT Biology Complete Guide</h3>
+      <p>12 exam-focused chapters covering 100% of the syllabus — with high-yield questions, diagrams, and cheat sheets built specifically around what IMAT actually tests.</p>
+      <a href="https://imatsensei.com/#enroll" class="btn-gold">Get the Bundle — €69 →</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ⑤ MAECI -->
+<div class="overlay" id="art-maeci" onclick="closeIfBg(event,'art-maeci')">
+<div class="modal">
+  <button class="close-btn" onclick="close_art('art-maeci')">×</button>
+  <div class="modal-top">
+    <span class="post-badge badge-scholarship">Scholarship</span>
+    <h1>MAECI Italian Government Scholarship — Complete Guide for Non-EU Students</h1>
+    <p class="sub">A competitive national scholarship from Italy's Ministry of Foreign Affairs. Open to non-EU students only.</p>
+  </div>
+  <div class="modal-body">
+    <h2>What is the MAECI Scholarship?</h2>
+    <p>MAECI (Ministero degli Affari Esteri e della Cooperazione Internazionale) is Italy's Ministry of Foreign Affairs. Each year it publishes a call (bando) offering a limited number of scholarships to international students for study at Italian universities. For medicine students, this can significantly reduce living costs on top of any DSU scholarship you receive.</p>
+    <div class="info-box">ℹ️ EU students and students already residing in Italy are <strong>not eligible</strong> for MAECI. EU students should focus on the DSU regional scholarship. Non-EU students should pursue <strong>both</strong> — DSU first (most reliable), MAECI as a bonus.</div>
+    <h2>What It Covers</h2>
+    <ul>
+      <li>Monthly living allowance (amount varies by call — typically €900–€1,000/month)</li>
+      <li>Health insurance coverage for the duration</li>
+      <li>In some cases, contribution toward tuition fees</li>
+      <li>Some awards include accommodation assistance</li>
+    </ul>
+    <h2>How to Apply</h2>
+    <ul>
+      <li>Check the annual call (bando) at: <strong>esteri.it/en/opportunita/borse-di-studio</strong></li>
+      <li>Applications typically open January–March for the following academic year</li>
+      <li>Apply through the Italian Embassy or Consulate in your home country</li>
+      <li>Required documents: academic transcripts, motivation letter, passport, language certificate (varies by country)</li>
+      <li>Selection is competitive — strong academic records are essential</li>
+    </ul>
+    <h2>MAECI vs DSU — Which to Prioritise?</h2>
+    <table class="art-table">
+      <thead><tr><th>Factor</th><th>DSU (Regional)</th><th>MAECI (Government)</th></tr></thead>
+      <tbody>
+        <tr><td>Eligibility</td><td>EU + Non-EU</td><td>Non-EU only</td></tr>
+        <tr><td>Based on</td><td>Income (ISEE)</td><td>Merit + competition</td></tr>
+        <tr><td>Difficulty</td><td>Easy–Medium</td><td>Hard (competitive)</td></tr>
+        <tr><td>Reliability</td><td>High — income-based</td><td>Low — limited seats</td></tr>
+        <tr><td>Max value</td><td>€7,000+/year + housing</td><td>~€12,000/year</td></tr>
+        <tr><td>Stackable?</td><td>Yes, with MAECI</td><td>Check call for rules</td></tr>
+      </tbody>
+    </table>
+    <div class="tip-box">✅ <strong>Strategy:</strong> Apply for DSU first — it is your most reliable financial support. Apply for MAECI in parallel if you are eligible and have a strong academic record. Do not plan your finances assuming you will receive MAECI.</div>
+    <div class="modal-cta">
+      <h3>Get Guidance on the Full Scholarship Strategy</h3>
+      <p>Revision Batch students get a dedicated enrollment and scholarship session covering DSU, MAECI eligibility, and the ISEE Parificato timeline.</p>
+      <a href="https://imatsensei.com/#enroll" class="btn-gold">Join the Revision Batch →</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ⑥ VISA -->
+<div class="overlay" id="art-visa" onclick="closeIfBg(event,'art-visa')">
+<div class="modal">
+  <button class="close-btn" onclick="close_art('art-visa')">×</button>
+  <div class="modal-top">
+    <span class="post-badge badge-visa">Visa & Admin</span>
+    <h1>Non-EU Students: The Exact Bureaucratic Timeline From Pre-Enrollment to Visa D</h1>
+    <p class="sub">Missing a single deadline can cost you an entire year. Here is exactly what to do and when.</p>
+  </div>
+  <div class="modal-body">
+    <h2>The Critical Difference: EU vs Non-EU Process</h2>
+    <p>EU students have a streamlined path — rank multiple universities, no visa needed, enroll after results. Non-EU students face a multi-step bureaucratic sequence with hard, non-negotiable deadlines. This process typically begins 5–6 months before the September exam.</p>
+    <div class="warn-box">⚠️ <strong>Non-EU students who start this process in June or July are already too late</strong> for several steps. Begin in March–April at the latest.</div>
+    <h2>The Complete Non-EU Timeline</h2>
+    <table class="art-table">
+      <thead><tr><th>Period</th><th>Action</th><th>Platform / Where</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Mar–Apr</strong></td><td>Start ISEE Parificato document collection in your home country</td><td>Local tax authority in home country</td></tr>
+        <tr><td><strong>Apr–May</strong></td><td>Pre-enrollment on Universitaly — choose your ONE university</td><td>universitaly.it</td></tr>
+        <tr><td><strong>May–Jun</strong></td><td>Submit pre-enrollment documents to Italian Embassy</td><td>Italian Embassy/Consulate in your country</td></tr>
+        <tr><td><strong>July</strong></td><td>IMAT registration opens — register for the exam</td><td>universitaly.it</td></tr>
+        <tr><td><strong>~17 Sep</strong></td><td>IMAT Exam Day</td><td>Designated test centre</td></tr>
+        <tr><td><strong>13 Oct</strong></td><td>Rankings published — check your university's website</td><td>Your university's official site</td></tr>
+        <tr><td><strong>Oct (4 working days)</strong></td><td>Enroll at university if admitted — do not miss this window</td><td>Your university's enrolment portal</td></tr>
+        <tr><td><strong>Oct–Nov</strong></td><td>Apply for Study Visa (Visa D) at Italian Embassy</td><td>Italian Embassy in your country</td></tr>
+        <tr><td><strong>Within 8 days of Italy arrival</strong></td><td>Apply for Permesso di Soggiorno (residence permit)</td><td>Italian Post Office with Kit Postale</td></tr>
+        <tr><td><strong>Oct–Nov</strong></td><td>Submit DSU scholarship application on university portal</td><td>Your regional scholarship agency portal</td></tr>
+      </tbody>
+    </table>
+    <h2>Pre-Enrollment: The Binding University Choice</h2>
+    <p>Non-EU students must pre-enroll at exactly one university on Universitaly before the IMAT. This is a binding decision. You need your passport, a recent passport photo, and your chosen university. Your high school diploma (with certified translation) will be required later. Choose carefully — your pre-enrollment university is the only place you can be admitted as non-EU.</p>
+    <h2>Visa D (Long-Stay Student Visa)</h2>
+    <p>After you receive your admission letter and enrollment confirmation from the Italian university, apply for a Type D Student Visa at your nearest Italian Embassy or Consulate. Required documents typically include: acceptance letter, proof of enrollment, proof of financial means (scholarship letter or bank statement), accommodation confirmation, and a valid passport. Processing times vary by country — start immediately after receiving admission.</p>
+    <h2>Permesso di Soggiorno (Residence Permit)</h2>
+    <p>Within 8 working days of arriving in Italy, you must apply for your Permesso di Soggiorno at an Italian post office (Ufficio Postale) using the official kit forms (Kit Postale). Bring your passport, visa, completed kit forms, accommodation proof, and passport photos. You will then be called to your local Questura (police headquarters) for biometrics. This permit is essential for everything in Italy — banking, health insurance, scholarship registration, and more.</p>
+    <div class="tip-box">✅ <strong>Parificati strategy:</strong> Non-EU students who obtain a Permesso di Soggiorno and maintain it for one full year become eligible to apply as EU students (Parificati) the following year — allowing them to rank multiple universities. This is a well-known approach for students who narrowly miss their target on the first attempt.</div>
+    <div class="modal-cta">
+      <h3>Get Step-by-Step Guidance</h3>
+      <p>Revision Batch students receive a dedicated session covering the full enrollment and admin process for their specific country and chosen university.</p>
+      <a href="https://imatsensei.com/#enroll" class="btn-gold">Join the Revision Batch →</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ⑦ STUDY PLAN -->
+<div class="overlay" id="art-studyplan" onclick="closeIfBg(event,'art-studyplan')">
+<div class="modal">
+  <button class="close-btn" onclick="close_art('art-studyplan')">×</button>
+  <div class="modal-top">
+    <span class="post-badge badge-strategy">Strategy</span>
+    <h1>The 15-Week IMAT Study Plan: Phase-by-Phase From Foundation to Exam Day</h1>
+    <p class="sub">Never wonder what to study next. Here is the complete structure from first week to exam week.</p>
+  </div>
+  <div class="modal-body">
+    <h2>Why Your Start Date Matters More Than You Think</h2>
+    <p>Students who begin preparing by May score significantly higher than those who start in July or August. Past papers only become useful once you have a content foundation to draw on — starting late means you never get the full value from practice. The syllabus is larger than it looks at first glance.</p>
+    <h2>Phase 1 — Foundation (Weeks 1–6 | ~May–June)</h2>
+    <p>Goal: cover the full syllabus content. No past papers yet — build the knowledge base first.</p>
+    <ul>
+      <li><strong>Week 1–2:</strong> Biology — Cell Biology, Organelles, Membranes, Transport, Biological Molecules</li>
+      <li><strong>Week 3–4:</strong> Biology — Cellular Respiration (allocate extra time here), Enzymes, Genetics, Central Dogma</li>
+      <li><strong>Week 5:</strong> Chemistry — Atomic structure, Periodic trends, Chemical Bonding</li>
+      <li><strong>Week 6:</strong> Chemistry — Acids & Bases, Redox Reactions, Gas Laws, Stoichiometry</li>
+    </ul>
+    <h2>Phase 2 — Build (Weeks 7–10 | ~July)</h2>
+    <p>Goal: complete remaining syllabus and begin topic-by-topic past paper questions.</p>
+    <ul>
+      <li><strong>Week 7:</strong> Chemistry — Equilibrium, Organic Chemistry, Kinetics, Biological Molecules (chemistry side)</li>
+      <li><strong>Week 8:</strong> Physics — Electricity & Circuits, Kinematics, Newton's Laws, Thermodynamics, Fluids</li>
+      <li><strong>Week 9:</strong> Mathematics — Algebra, Logs & Exponents, Probability, Geometry, Trigonometry</li>
+      <li><strong>Week 10:</strong> Logic & Reading — practice daily with timed reasoning sets. Read medical-style English texts to prepare for the reading section.</li>
+    </ul>
+    <h2>Phase 3 — Integration (Weeks 11–13 | ~August)</h2>
+    <p>Goal: full timed mock exams under real conditions. Identify weak areas and target them.</p>
+    <ul>
+      <li>One full 60-question mock per week under strict 100-minute conditions</li>
+      <li>After each mock: categorise every wrong answer — knowledge gap, careless error, or time pressure</li>
+      <li>Spend 60% of non-mock time on your three weakest identified topics</li>
+      <li>Review high-yield biology and chemistry summaries weekly</li>
+    </ul>
+    <h2>Phase 4 — Peak (Weeks 14–15 | September)</h2>
+    <p>Goal: consolidate confidence, handle logistics, do not introduce new content.</p>
+    <ul>
+      <li>One final mock in the week before the exam — no new topics</li>
+      <li>Review only formula cards and key biology summary sheets daily</li>
+      <li>Confirm your test centre location, travel, and ID documents the week before</li>
+      <li>In the final 3 days: rest, eat well, sleep properly. Your brain needs to perform, not absorb new information.</li>
+    </ul>
+    <div class="tip-box">✅ <strong>Prioritise Biology and Chemistry in all phases.</strong> Together they account for 63% of all available points. Mastering these two subjects first and reinforcing them throughout gives you the highest return on every hour of study time.</div>
+    <div class="modal-cta">
+      <h3>Get the Full Calendar-Accurate 15-Week Plan</h3>
+      <p>Included in the IMAT Sensei Bundle — a day-by-day plan from May to September so you never have to decide what to study next.</p>
+      <a href="https://imatsensei.com/#enroll" class="btn-gold">Get the Bundle — €69 →</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ⑧ CHEMISTRY -->
+<div class="overlay" id="art-chemistry" onclick="closeIfBg(event,'art-chemistry')">
+<div class="modal">
+  <button class="close-btn" onclick="close_art('art-chemistry')">×</button>
+  <div class="modal-top">
+    <span class="post-badge badge-exam">Chemistry</span>
+    <h1>IMAT Chemistry: How to Prepare for Both Calculation-Heavy and Theory-Heavy Papers</h1>
+    <p class="sub">15 questions, 22.5 points. The second most important section — and the one with the most unpredictable style.</p>
+  </div>
+  <div class="modal-body">
+    <h2>The Unpredictability Problem</h2>
+    <p>In 2024, stoichiometry and calculation problems dominated chemistry — 7 of 15 questions were numerical. In 2025, the paper flipped completely to theory — redox, bonds, and acids/bases each had 2 questions, with no heavy calculation problems. You cannot know which style 2026 will use. You must prepare for both.</p>
+    <h2>Always High-Yield (Every Year, Every Style)</h2>
+    <ul>
+      <li><strong>Acids & Bases / pH</strong> — appeared in 2024 and 2025. pH calculations, buffer solutions, acid-base indicators, strong vs weak acids</li>
+      <li><strong>Redox Reactions</strong> — oxidation states, half-reactions, balancing redox equations, electrochemical cells</li>
+      <li><strong>Gas Laws</strong> — Boyle's, Charles's, Gay-Lussac's, Ideal Gas, combined numerical problems</li>
+      <li><strong>Chemical Equilibrium</strong> — Le Chatelier's principle, Kc and Kp expressions, effect of temperature and pressure</li>
+    </ul>
+    <h2>When the Paper Is Calculation-Heavy (2024 Style)</h2>
+    <ul>
+      <li>Mole concept and molar mass calculations</li>
+      <li>Limiting reagent and theoretical yield problems</li>
+      <li>Solution concentration — molarity, molality, percentage concentration</li>
+      <li>Stoichiometry across states (solid, liquid, gas)</li>
+      <li>Dilution problems and solution mixing</li>
+    </ul>
+    <h2>When the Paper Is Theory-Heavy (2025 Style)</h2>
+    <ul>
+      <li>Types of chemical bonds — ionic, covalent, metallic, hydrogen bonding</li>
+      <li>Molecular geometry (VSEPR), polarity, dipole moments</li>
+      <li>Periodic table trends — electronegativity, ionisation energy, atomic radius</li>
+      <li>Atomic orbitals, electron configuration, quantum numbers</li>
+      <li>Reaction kinetics — rate laws, activation energy, catalysts</li>
+      <li>Organic chemistry — functional groups, naming, basic reaction types</li>
+    </ul>
+    <div class="warn-box">⚠️ Students who only practise calculations, or only study theory, are gambling on which style the paper will use. Both must be prepared. The only way to guarantee points regardless of the paper is to be competent in both.</div>
+    <div class="modal-cta">
+      <h3>Get the IMAT Chemistry Complete Guide</h3>
+      <p>Reaction maps, formula reference sheets, stoichiometry walkthroughs — both calculation and theory approaches covered in full.</p>
+      <a href="https://imatsensei.com/#enroll" class="btn-gold">Get the Bundle — €69 →</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ⑨ ISEE PARIFICATO -->
+<div class="overlay" id="art-isee" onclick="closeIfBg(event,'art-isee')">
+<div class="modal">
+  <button class="close-btn" onclick="close_art('art-isee')">×</button>
+  <div class="modal-top">
+    <span class="post-badge badge-visa">Visa & Admin</span>
+    <h1>ISEE Parificato: The Document That Unlocks Your Scholarship — Start 4 Months Early</h1>
+    <p class="sub">The single most commonly missed scholarship deadline — and it is 100% avoidable if you start in time.</p>
+  </div>
+  <div class="modal-body">
+    <h2>What Is the ISEE Parificato?</h2>
+    <p>ISEE stands for "Indicatore della Situazione Economica Equivalente" — Italy's system for assessing your family's economic status. For Italian residents, this is a standard process. For international students whose family earns income abroad, you need the <strong>ISEE Parificato</strong> — a more complex version that requires documents from your home country to be certified and assessed.</p>
+    <p>This single number (your ISEE value) determines whether you receive the DSU scholarship and how much cash stipend you get. Without it, you cannot apply.</p>
+    <div class="warn-box">⚠️ <strong>The ISEE Parificato is the #1 reason IMAT students miss their scholarship.</strong> The process takes 2–4 months. Start in March or April every year without exception.</div>
+    <h2>Step-by-Step Process</h2>
+    <ul>
+      <li><strong>Step 1:</strong> Obtain official income and asset declarations from your home country's tax authority, covering the previous calendar year (January–December). For most students in 2026, this means income data from 2024.</li>
+      <li><strong>Step 2:</strong> Have documents apostilled or legalised — the exact requirement depends on your country's treaty status with Italy. Apostille countries use an apostille stamp. Non-apostille countries need full legalisation through the Italian Embassy.</li>
+      <li><strong>Step 3:</strong> Get all documents translated into Italian by a certified translator (traduttore giurato). Self-translations are not accepted.</li>
+      <li><strong>Step 4:</strong> Once in Italy (or through a representative), bring everything to a CAF (Centro di Assistenza Fiscale — a tax assistance centre). They complete the DSU declaration form and calculate your ISEE value. This can take 2–6 weeks during peak season.</li>
+      <li><strong>Step 5:</strong> Submit the ISEE certificate to your university's scholarship portal before the deadline (typically September–November).</li>
+    </ul>
+    <div class="tip-box">✅ <strong>Turin exception:</strong> EDISU Piedmont (University of Turin's scholarship agency) calculates the ISEE Parificato directly for applicants. You do not need to go through a CAF independently. This removes one of the most stressful steps and makes Turin an especially student-friendly choice for non-EU applicants who want to reduce admin burden.</div>
+    <h2>Income Thresholds</h2>
+    <table class="art-table">
+      <thead><tr><th>ISEE Parificato Value</th><th>Scholarship Outcome</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Below ~€13,153</strong></td><td>Maximum grant: full tuition waiver + highest stipend (up to €7,000/year)</td></tr>
+        <tr><td><strong>€13,153–€26,306</strong></td><td>Partial grant: tuition waiver + reduced stipend</td></tr>
+        <tr><td><strong>Above ~€26,306</strong></td><td>Not eligible for DSU. Still entitled to reduced tuition based on income.</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:.8rem;color:var(--muted)">Thresholds vary slightly by region and year. Check the bando on your scholarship agency's website each year.</p>
+    <div class="modal-cta">
+      <h3>Get Scholarship Guidance</h3>
+      <p>Revision Batch students get a dedicated session covering the DSU application process, ISEE Parificato steps, and scholarship strategy for their specific country and university.</p>
+      <a href="https://imatsensei.com/#enroll" class="btn-gold">Join the Revision Batch →</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ⑩ SCORING -->
+<div class="overlay" id="art-scoring" onclick="closeIfBg(event,'art-scoring')">
+<div class="modal">
+  <button class="close-btn" onclick="close_art('art-scoring')">×</button>
+  <div class="modal-top">
+    <span class="post-badge badge-strategy">Strategy</span>
+    <h1>IMAT Scoring Maths: When to Answer, When to Skip, When to Guess</h1>
+    <p class="sub">Understanding this turns a nervous habit into a calculated edge.</p>
+  </div>
+  <div class="modal-body">
+    <h2>The Scoring System</h2>
+    <p>Every IMAT question is multiple choice with 5 options. Scoring: <strong>+1.5 correct</strong>, <strong>−0.4 wrong</strong>, <strong>0 blank</strong>. Maximum possible score: 90 points.</p>
+    <h2>When Is Guessing Worth It?</h2>
+    <p><strong>Random guessing (no elimination):</strong> Expected value = (1/5 × 1.5) + (4/5 × −0.4) = 0.3 − 0.32 = <strong>−0.02</strong>. Marginally negative — not worth it.</p>
+    <p><strong>After eliminating 1 option (guess from 4):</strong> Expected value = (1/4 × 1.5) + (3/4 × −0.4) = 0.375 − 0.3 = <strong>+0.075</strong>. Now guessing is mathematically positive.</p>
+    <p><strong>After eliminating 2 options (guess from 3):</strong> Expected value = (1/3 × 1.5) + (2/3 × −0.4) = 0.5 − 0.267 = <strong>+0.233</strong>. Strongly worth guessing.</p>
+    <div class="tip-box">✅ <strong>The rule:</strong> If you can eliminate at least 1 answer option, always guess. If you truly have zero ability to narrow it down, leave it blank. Most questions allow elimination of at least 1–2 obviously wrong options.</div>
+    <h2>Score Simulations</h2>
+    <table class="art-table">
+      <thead><tr><th>Pattern</th><th>Correct / Wrong / Blank</th><th>Score</th><th>Unlocks</th></tr></thead>
+      <tbody>
+        <tr><td>Bio+Chem mastery, avg elsewhere</td><td>50 / 2 / 8</td><td><strong>74.2</strong></td><td>✅ All universities incl. Milan, Pavia</td></tr>
+        <tr><td>Strong Bio+Chem, weaker logic</td><td>47 / 5 / 8</td><td><strong>68.5</strong></td><td>✅ Turin, Tor Vergata, Parma, Padova</td></tr>
+        <tr><td>Balanced all sections</td><td>44 / 8 / 8</td><td><strong>63.8</strong></td><td>⚠️ Federico II, mid-tier options</td></tr>
+        <tr><td>Cautious — skips all uncertain</td><td>40 / 0 / 20</td><td><strong>60.0</strong></td><td>⚠️ Marche, Messina, southern unis</td></tr>
+        <tr><td>Pure random guessing (all 60)</td><td>12 / 48 / 0</td><td><strong>~−1</strong></td><td>❌ Nowhere. Never do this.</td></tr>
+      </tbody>
+    </table>
+    <h2>Time Management in 100 Minutes</h2>
+    <ul>
+      <li><strong>Pass 1:</strong> Answer everything you know confidently and quickly — aim to complete this in 55–60 minutes</li>
+      <li><strong>Pass 2:</strong> Return to questions where you can eliminate 1–2 options — guess on these</li>
+      <li><strong>Final 5 minutes:</strong> Leave questions with zero basis for elimination blank. Spend remaining time on any borderline questions you skipped</li>
+      <li><strong>Section priority:</strong> Biology (35 min) → Chemistry (25 min) → Physics (8 min) → Maths (10 min) → Logic+Reading (22 min)</li>
+    </ul>
+    <div class="modal-cta">
+      <h3>Practice Under Real Exam Conditions</h3>
+      <p>Full 60-question timed mocks with detailed answer explanations — available in the IMAT Sensei Mock Bank.</p>
+      <a href="https://imatsensei1-ux.github.io/IMAT-Sensei/" target="_blank" class="btn-gold">Preview Mock Bank ↗</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ⑪ EU VS NON-EU -->
+<div class="overlay" id="art-euvsnoneu" onclick="closeIfBg(event,'art-euvsnoneu')">
+<div class="modal">
+  <button class="close-btn" onclick="close_art('art-euvsnoneu')">×</button>
+  <div class="modal-top">
+    <span class="post-badge badge-university">Universities</span>
+    <h1>EU vs Non-EU: Two Completely Separate Competitions — How It Actually Works</h1>
+    <p class="sub">The most misunderstood structural fact about IMAT admissions — and why it changes your strategy entirely.</p>
+  </div>
+  <div class="modal-body">
+    <h2>The Core Rule</h2>
+    <p>EU and non-EU students compete on <strong>entirely separate ranking lists</strong>. You never compete against the other group. Seats are allocated separately from separate pools. A high-scoring non-EU student does not take a seat from an EU student, and vice versa.</p>
+    <h2>Who Counts as EU?</h2>
+    <p>EU citizens (all 27 EU member states) plus: Norway, Iceland, Liechtenstein, Switzerland, San Marino, and Vatican City. Additionally, <strong>Parificati</strong> — non-EU students who hold a valid Italian Permesso di Soggiorno (residence permit) — are treated as EU students for IMAT purposes.</p>
+    <h2>Key Differences</h2>
+    <table class="art-table">
+      <thead><tr><th>Factor</th><th>EU Students</th><th>Non-EU Students</th></tr></thead>
+      <tbody>
+        <tr><td>Universities can rank</td><td>Up to 13</td><td>Only 1 (pre-enrollment)</td></tr>
+        <tr><td>Scrolling (seat redistribution)</td><td>Yes — multiple rounds</td><td>No — one round only</td></tr>
+        <tr><td>Visa required</td><td>No</td><td>Yes — Visa D + Permesso</td></tr>
+        <tr><td>Pre-enrollment deadline</td><td>Less critical</td><td>Hard deadline — binding</td></tr>
+        <tr><td>MAECI scholarship</td><td>Not eligible</td><td>Eligible</td></tr>
+        <tr><td>DSU scholarship</td><td>Eligible once enrolled</td><td>Eligible once enrolled</td></tr>
+        <tr><td>Total 2025 candidates</td><td>~7,200 in ranking</td><td>~6,300 registered</td></tr>
+        <tr><td>2025 Medicine seats</td><td>~952 (EU)</td><td>~553 (non-EU)</td></tr>
+      </tbody>
+    </table>
+    <h2>The EU Scrolling Advantage</h2>
+    <p>EU students participate in multiple rounds of seat redistribution ("scorrimento"). If you don't get your first-choice university, you automatically stay in the ranking for your second, third choice, and so on as seats free up. This dramatically increases the chances of getting a seat somewhere. The process can continue for several months after the initial rankings are published.</p>
+    <h2>The Parificati Strategy</h2>
+    <p>Non-EU students who obtain an Italian residence permit and maintain it for one full year become eligible to compete as EU students (Parificati) the following year. This means ranking up to 13 universities instead of one, and participating in scrolling. Students who narrowly miss their target on the first attempt often use the year to study Italian at a language school or enroll in a science undergraduate programme to maintain their permit — and re-take the IMAT the following year with full EU-equivalent access.</p>
+    <div class="modal-cta">
+      <h3>Get University Selection Guidance</h3>
+      <p>Revision Batch students get a dedicated session on university choice — your score, nationality, scholarship, and long-term strategy all factored in.</p>
+      <a href="https://imatsensei.com/#enroll" class="btn-gold">Join the Revision Batch →</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ⑫ SCHOLARSHIP MAP -->
+<div class="overlay" id="art-scholarship_map" onclick="closeIfBg(event,'art-scholarship_map')">
+<div class="modal">
+  <button class="close-btn" onclick="close_art('art-scholarship_map')">×</button>
+  <div class="modal-top">
+    <span class="post-badge badge-scholarship">Scholarship</span>
+    <h1>University-by-University Scholarship Map: Which City Has the Easiest Process?</h1>
+    <p class="sub">Not all scholarship agencies are equal. Here is what to expect city by city.</p>
+  </div>
+  <div class="modal-body">
+    <h2>How the Regional Scholarship System Works</h2>
+    <p>Each Italian region has its own scholarship agency (DSU body) that manages the regional scholarship for all universities in that region. The eligibility rules are broadly the same nationwide, but the application process, organisation, and bureaucratic ease vary enormously between agencies.</p>
+    <table class="art-table">
+      <thead><tr><th>Region</th><th>Universities</th><th>Agency</th><th>Difficulty</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Piemonte</strong></td><td>Turin</td><td>EDISU Piemonte<br>edisu.piemonte.it</td><td>🟢 Easy ★</td><td>Calculates ISEE Parificato directly — no CAF needed. Best for first-time applicants.</td></tr>
+        <tr><td><strong>Lombardia</strong></td><td>Milan, Pavia, Bicocca</td><td>University DSU offices</td><td>🟢 Easy</td><td>EDISU Pavia is particularly well-organised. High cost of living but stipend helps.</td></tr>
+        <tr><td><strong>Emilia-Romagna</strong></td><td>Bologna, Parma</td><td>ER.GO<br>er-go.it</td><td>🟡 Medium</td><td>One application covers both Bologna and Parma. Bologna is competitive; Parma is easier.</td></tr>
+        <tr><td><strong>Veneto</strong></td><td>Padova</td><td>ESU Padova<br>unipd.it</td><td>🟡 Medium</td><td>Popular university = high applicant volume. Deadline typically 30 Sept.</td></tr>
+        <tr><td><strong>Lazio</strong></td><td>Sapienza, Tor Vergata</td><td>LazioDisco<br>laziodisco.it</td><td>🟡 Medium</td><td>Rome's high cost of living means stipend is essential. LazioDisco covers both universities.</td></tr>
+        <tr><td><strong>Campania</strong></td><td>Federico II, Vanvitelli</td><td>ADiSUrC<br>adisurcampania.it</td><td>🟢 Easy</td><td>Naples has one of Italy's lowest costs of living — stipend goes much further here.</td></tr>
+        <tr><td><strong>Puglia</strong></td><td>Bari</td><td>ADISU Puglia<br>adisupuglia.it</td><td>🟢 Easy</td><td>Straightforward process. Bari is a hidden gem — low competition, low cost, seaside city.</td></tr>
+        <tr><td><strong>Sicilia</strong></td><td>Messina, Catania</td><td>ERSU<br>(city-specific)</td><td>🟢 Easy</td><td>Very low cost of living. Less infrastructure than northern universities but easy scholarship access.</td></tr>
+        <tr><td><strong>Marche</strong></td><td>Ancona (Marche)</td><td>DSU Marche</td><td>🟢 Easy</td><td>60 non-EU seats — highest allocation in Italy. Smaller city, very affordable.</td></tr>
+        <tr><td><strong>Sardegna</strong></td><td>Cagliari</td><td>ERSU Cagliari</td><td>🟢 Easy</td><td>Island location, low cost of living, straightforward scholarship process.</td></tr>
+      </tbody>
+    </table>
+    <div class="tip-box">✅ <strong>For students who want the simplest scholarship experience:</strong> Turin (EDISU calculates your ISEE directly), Bari, Naples, or Parma are consistently the most straightforward. For students targeting prestige: Pavia has excellent scholarship support despite being a top-tier university.</div>
+    <div class="modal-cta">
+      <h3>Need Help Choosing?</h3>
+      <p>Revision Batch students get personalised guidance on university selection and scholarship strategy based on their specific situation.</p>
+      <a href="https://imatsensei.com/#enroll" class="btn-gold">Join the Revision Batch →</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ⑬ PHYSICS & MATHS -->
+<div class="overlay" id="art-physics_maths" onclick="closeIfBg(event,'art-physics_maths')">
+<div class="modal">
+  <button class="close-btn" onclick="close_art('art-physics_maths')">×</button>
+  <div class="modal-top">
+    <span class="post-badge badge-exam">Physics & Maths</span>
+    <h1>IMAT Physics & Maths: Maximum Points With Minimum Wasted Study Time</h1>
+    <p class="sub">13 questions, 19.5 points. These sections are now critical differentiators — here is what to prioritise.</p>
+  </div>
+  <div class="modal-body">
+    <h2>Physics (6 Questions)</h2>
+    <p>Electricity is consistently the most tested physics topic across every year the MUR has written the exam. Do not leave this for last. Thermodynamics was absent in 2025 — an unusual omission — but has appeared in previous years and should still be studied.</p>
+    <table class="art-table">
+      <thead><tr><th>Topic</th><th>2025 Qs</th><th>Priority</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Electricity & Circuits</strong></td><td>2</td><td>⭐⭐⭐⭐⭐</td><td>Always tested — Ohm's Law, series/parallel circuits, power</td></tr>
+        <tr><td>Kinematics</td><td>1</td><td>⭐⭐⭐⭐</td><td>SUVAT equations, projectile motion</td></tr>
+        <tr><td>Newton's Laws & Friction</td><td>1</td><td>⭐⭐⭐⭐</td><td>F=ma, friction, inclined planes</td></tr>
+        <tr><td>Gravitation</td><td>1</td><td>⭐⭐⭐</td><td>Gravitational force, orbital motion</td></tr>
+        <tr><td>Fluid Mechanics</td><td>1</td><td>⭐⭐⭐</td><td>Pressure, Archimedes, Bernoulli</td></tr>
+        <tr><td><strong>Thermodynamics</strong></td><td>0 (absent 2025)</td><td>⭐⭐⭐</td><td>Still study — has appeared before and will return</td></tr>
+      </tbody>
+    </table>
+    <h2>Mathematics (7 Questions)</h2>
+    <p>Maths was more challenging in 2025 than 2024, with rare topics like Set Theory appearing. Exponents, logarithms, and probability were absent in 2025 — but were common in 2023 and earlier. Always prepare these even if they were absent recently.</p>
+    <table class="art-table">
+      <thead><tr><th>Topic</th><th>2025 Qs</th><th>Priority</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Algebra & Equations</strong></td><td>2</td><td>⭐⭐⭐⭐⭐</td><td>Core — always prepare. Quadratics, systems, inequalities.</td></tr>
+        <tr><td>Square Root Inequalities</td><td>1</td><td>⭐⭐⭐⭐</td><td>Appeared 2025</td></tr>
+        <tr><td>Trigonometric Inequalities</td><td>1</td><td>⭐⭐⭐⭐</td><td>Moderate difficulty</td></tr>
+        <tr><td>Set Theory</td><td>1</td><td>⭐⭐⭐</td><td>Rare — appeared 2025. Don't skip entirely.</td></tr>
+        <tr><td>Polynomials</td><td>1</td><td>⭐⭐⭐⭐</td><td>Standard topic</td></tr>
+        <tr><td>Geometry</td><td>1</td><td>⭐⭐⭐</td><td>Areas, angles, coordinate geometry</td></tr>
+        <tr><td><strong>Logs & Exponents</strong></td><td>0 (absent 2025)</td><td>⭐⭐⭐⭐⭐</td><td>Were very common before — study these</td></tr>
+        <tr><td><strong>Probability</strong></td><td>0 (absent 2025)</td><td>⭐⭐⭐⭐</td><td>Were common before — study these</td></tr>
+      </tbody>
+    </table>
+    <div class="warn-box">⚠️ Topics absent in one year frequently return the next. Do not skip Logs, Exponents, Probability, or Thermodynamics just because they weren't tested in 2025.</div>
+    <div class="modal-cta">
+      <h3>Get the IMAT Physics & Maths Books</h3>
+      <p>Both are included in the IMAT Sensei Bundle — formula cards, worked examples, and IMAT-style questions for every topic.</p>
+      <a href="https://imatsensei.com/#enroll" class="btn-gold">Get the Bundle — €69 →</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+let activeCat = 'all';
+
+function setCat(cat, el) {
+  activeCat = cat;
+  document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  doFilter();
+}
+
+function doFilter() {
+  const q = document.getElementById('searchInput').value.toLowerCase().trim();
+  const cards = document.querySelectorAll('.post-card');
+  let vis = 0;
+  cards.forEach(c => {
+    const catOk = activeCat === 'all' || c.dataset.cat === activeCat;
+    const txtOk = !q || c.innerText.toLowerCase().includes(q);
+    const show = catOk && txtOk;
+    c.classList.toggle('hidden', !show);
+    if (show) vis++;
+  });
+  const fs = document.getElementById('featuredSection');
+  fs.style.display = (activeCat !== 'all' || q) ? 'none' : '';
+  document.getElementById('empty').classList.toggle('show', vis === 0);
+}
+
+const artMap = {
+  cutoffs:'art-cutoffs', dsu:'art-dsu', universities:'art-universities',
+  biology:'art-biology', maeci:'art-maeci', visa:'art-visa',
+  studyplan:'art-studyplan', chemistry:'art-chemistry', isee:'art-isee',
+  scoring:'art-scoring', euvsnoneu:'art-euvsnoneu',
+  scholarship_map:'art-scholarship_map', physics_maths:'art-physics_maths'
+};
+
+function open_art(key) {
+  const id = artMap[key]; if (!id) return;
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById(id).scrollTop = 0;
+}
+function close_art(id) {
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeIfBg(e, id) {
+  if (e.target === document.getElementById(id)) close_art(id);
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.querySelectorAll('.overlay.open').forEach(el => {
+    el.classList.remove('open'); document.body.style.overflow = '';
+  });
+});
+</script>
+</body>
+</html>
